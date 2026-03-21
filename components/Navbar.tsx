@@ -30,8 +30,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="#" className="text-xl font-bold tracking-widest text-indigo">
-          AVIGOR
+        <a href="#" className="flex items-center gap-2.5">
+          <svg className="w-8 h-8" viewBox="0 0 48 48" fill="none">
+            <path d="M14 38L24 12L34 38H29L24 24L19 38H14Z" fill="#4F46E5"/>
+            <circle cx="24" cy="14" r="3" fill="#84CC16"/>
+            <rect x="19" y="30" width="10" height="2.5" rx="1.25" fill="#4F46E5" opacity="0.5"/>
+          </svg>
+          <span className="text-xl font-bold tracking-widest text-indigo">
+            AVIGOR
+          </span>
         </a>
 
         {/* Desktop */}

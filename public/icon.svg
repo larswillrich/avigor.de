@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#312E81"/>
+      <stop offset="50%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="aFill" x1="24" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#84CC16"/>
+      <stop offset="40%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+    </filter>
+    <clipPath id="roundClip">
+      <rect width="48" height="48" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="48" height="48" rx="14" fill="url(#bg)"/>
+
+  <!-- Clipped content -->
+  <g clip-path="url(#roundClip)">
+    <!-- Ambient light from top -->
+    <ellipse cx="24" cy="0" rx="20" ry="16" fill="white" opacity="0.06"/>
+
+    <!-- Orbiting ring (subtle) -->
+    <ellipse cx="24" cy="24" rx="18" ry="18" fill="none" stroke="white" stroke-opacity="0.06" stroke-width="0.5"/>
+    <ellipse cx="24" cy="24" rx="13" ry="13" fill="none" stroke="white" stroke-opacity="0.04" stroke-width="0.5"/>
+
+    <!-- Large lime glow behind -->
+    <circle cx="24" cy="12" r="8" fill="#84CC16" opacity="0.15" filter="url(#softGlow)"/>
+
+    <!-- The A — modern geometric, open top -->
+    <path d="M16 38L24 13L32 38" stroke="url(#aFill)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#neonGlow)"/>
+
+    <!-- Crossbar — offset, modern -->
+    <line x1="19" y1="29" x2="29" y2="29" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+
+    <!-- Lime agent dot with neon glow -->
+    <circle cx="24" cy="12" r="3.5" fill="#84CC16" opacity="0.5" filter="url(#softGlow)"/>
+    <circle cx="24" cy="12" r="2" fill="#84CC16" filter="url(#neonGlow)"/>
+    <circle cx="24" cy="12" r="0.8" fill="white"/>
+  </g>
+</svg>

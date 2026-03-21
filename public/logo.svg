@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
+  <!-- Geometric A mark -->
+  <g>
+    <!-- Arrow/A shape -->
+    <path d="M8 40L24 8L40 40H34L24 18L14 40H8Z" fill="#4F46E5"/>
+    <!-- Lime accent dot (the "agent") -->
+    <circle cx="24" cy="10" r="3.5" fill="#84CC16"/>
+    <!-- Crossbar -->
+    <rect x="15" y="28" width="18" height="3" rx="1.5" fill="#4F46E5" opacity="0.6"/>
+  </g>
+  <!-- AVIGOR text -->
+  <text x="52" y="36" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="800" letter-spacing="3" fill="#4F46E5">AVIGOR</text>
+</svg>
