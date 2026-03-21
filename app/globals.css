@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-amber-brand: #C47F17;
+  --color-amber-light: #D4983A;
+  --color-amber-dark: #A36A10;
+  --color-charcoal: #1C1C1E;
+  --color-ivory: #FAF7F2;
+  --color-copper: #B87333;
+  --color-teal-brand: #3A8C8C;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+}
+
+::selection {
+  background-color: var(--color-amber-brand);
+  color: var(--color-charcoal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
