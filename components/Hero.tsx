@@ -4,38 +4,44 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal to-amber-brand/10" />
-      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-amber-brand/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-teal-brand/5 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Background elements */}
+      <div className="absolute inset-0 dot-pattern" />
+      <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-indigo/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-20 left-1/4 w-[400px] h-[400px] bg-lime/10 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lavender/50 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-amber-brand tracking-[0.3em] uppercase text-sm font-semibold mb-6"
+          className="inline-flex items-center gap-2 bg-lime/10 border border-lime/20 rounded-full px-4 py-1.5 mb-8"
         >
-          Avid IT Guidance Advisor
-        </motion.p>
+          <span className="w-2 h-2 bg-lime rounded-full animate-pulse" />
+          <span className="text-sm font-medium text-lime-dark">
+            Agentic-Driven Consulting
+          </span>
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8 text-slate"
         >
           We deploy agents,
           <br />
-          <span className="text-amber-brand">not armies.</span>
+          <span className="bg-gradient-to-r from-indigo to-indigo-light bg-clip-text text-transparent">
+            not armies.
+          </span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-lg md:text-xl text-ivory/60 max-w-2xl mx-auto mb-12"
+          className="text-lg md:text-xl text-slate-light max-w-2xl mx-auto mb-12"
         >
           Berlin-based Data & AI consultancy that replaces expensive consultant
           teams with agentic solutions. You pay for value delivered — not
@@ -50,16 +56,35 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="bg-amber-brand text-charcoal font-semibold px-8 py-4 rounded text-lg hover:bg-amber-light transition-colors"
+            className="bg-indigo text-white font-semibold px-8 py-4 rounded-xl text-lg hover:bg-indigo-light hover:shadow-lg hover:shadow-indigo/25 transition-all"
           >
             Book a Call
           </a>
           <a
             href="#why"
-            className="border border-ivory/20 text-ivory font-semibold px-8 py-4 rounded text-lg hover:border-amber-brand hover:text-amber-brand transition-colors"
+            className="border-2 border-slate/10 text-slate font-semibold px-8 py-4 rounded-xl text-lg hover:border-indigo hover:text-indigo transition-all"
           >
             See How It Works
           </a>
+        </motion.div>
+
+        {/* Trust badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-light/50"
+        >
+          <span>Previously at</span>
+          <span className="font-semibold text-slate-light/70">Capgemini</span>
+          <span className="text-slate/10">|</span>
+          <span className="font-semibold text-slate-light/70">Deloitte</span>
+          <span className="text-slate/10">|</span>
+          <span className="font-semibold text-slate-light/70">Accenture</span>
+          <span className="text-slate/10">|</span>
+          <span className="font-semibold text-slate-light/70">Capco</span>
+          <span className="text-slate/10">|</span>
+          <span className="font-semibold text-slate-light/70">MHP Porsche</span>
         </motion.div>
       </div>
 
@@ -73,9 +98,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="w-5 h-8 border-2 border-ivory/20 rounded-full flex justify-center pt-1.5"
+          className="w-5 h-8 border-2 border-indigo/20 rounded-full flex justify-center pt-1.5"
         >
-          <div className="w-1 h-2 bg-amber-brand rounded-full" />
+          <div className="w-1 h-2 bg-indigo rounded-full" />
         </motion.div>
       </motion.div>
     </section>

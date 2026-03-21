@@ -7,17 +7,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        amber: {
-          brand: "#C47F17",
-          light: "#D4983A",
-          dark: "#A36A10",
+        indigo: {
+          DEFAULT: "#4F46E5",
+          light: "#6366F1",
+          deep: "#1E1B4B",
         },
-        charcoal: "#1C1C1E",
-        ivory: "#FAF7F2",
-        copper: "#B87333",
-        teal: {
-          brand: "#3A8C8C",
+        lime: {
+          DEFAULT: "#84CC16",
+          light: "#BEF264",
+          dark: "#65A30D",
         },
+        slate: {
+          DEFAULT: "#1E293B",
+          light: "#475569",
+        },
+        lavender: "#EEF2FF",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

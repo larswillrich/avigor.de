@@ -37,14 +37,18 @@ export default function Publications() {
   return (
     <section
       id="publications"
-      className="bg-ivory text-charcoal py-24 md:py-32"
+      className="bg-indigo-deep py-24 md:py-32 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="absolute top-0 left-1/3 w-[400px] h-[400px] bg-indigo/10 rounded-full blur-[120px]" />
+
+      <div className="relative max-w-6xl mx-auto px-6">
         <AnimateOnScroll>
-          <p className="text-amber-brand font-semibold text-sm tracking-widest uppercase mb-4">
-            Thought Leadership
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 max-w-3xl">
+          <div className="inline-flex items-center gap-2 bg-lime/10 border border-lime/20 rounded-full px-4 py-1.5 mb-4">
+            <span className="text-lime font-semibold text-sm tracking-widest uppercase">
+              Thought Leadership
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 max-w-3xl text-white">
             Our thinking, in print.
           </h2>
         </AnimateOnScroll>
@@ -52,33 +56,36 @@ export default function Publications() {
         <div className="space-y-6">
           {publications.map((pub, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
-              <div className="flex flex-col md:flex-row gap-6 md:gap-10 bg-white rounded-xl border border-charcoal/5 p-8 hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 hover:border-lime/20 hover:bg-white/[0.07] transition-all duration-300">
                 {/* Year badge */}
                 <div className="shrink-0 flex items-start">
-                  <span className="text-4xl font-bold text-charcoal/10">
+                  <span className="text-5xl font-bold bg-gradient-to-b from-white/20 to-white/5 bg-clip-text text-transparent">
                     {pub.year}
                   </span>
                 </div>
 
                 <div className="flex-grow">
                   <div className="flex items-start gap-3 mb-2">
-                    <h3 className="text-xl font-bold">{pub.title}</h3>
+                    <h3 className="text-xl font-bold text-white">
+                      {pub.title}
+                    </h3>
                     {pub.forthcoming && (
-                      <span className="text-xs font-semibold bg-amber-brand/10 text-amber-brand px-2 py-0.5 rounded-full shrink-0 mt-1">
+                      <span className="text-xs font-semibold bg-lime/20 text-lime px-2.5 py-0.5 rounded-full shrink-0 mt-1">
                         Forthcoming
                       </span>
                     )}
                   </div>
                   {pub.subtitle && (
-                    <p className="text-sm text-charcoal/40 italic mb-2">
+                    <p className="text-sm text-white/30 italic mb-2">
                       {pub.subtitle}
                     </p>
                   )}
-                  <p className="text-charcoal/60 text-sm mb-3">
+                  <p className="text-white/50 text-sm mb-3">
                     {pub.description}
                   </p>
-                  <p className="text-xs text-charcoal/40">
-                    {pub.authors} &middot; {pub.publisher}
+                  <p className="text-xs text-white/30">
+                    {pub.authors} &middot;{" "}
+                    <span className="text-lime/60">{pub.publisher}</span>
                   </p>
                 </div>
               </div>
