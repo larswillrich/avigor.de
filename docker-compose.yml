@@ -1,17 +1,16 @@
 services:
-  avigor:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: avigor-web
+  avigor-website:
+    image: ghcr.io/larswillrich/avigor:latest
     restart: unless-stopped
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-    healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.avigorwebsite.rule=Host(`avigor.de`)
+      - traefik.http.routers.avigorwebsite.tls=true
+      - traefik.http.routers.avigorwebsite.entrypoints=web,websecure
+      - traefik.http.routers.avigorwebsite.tls.certresolver=mytlschallenge
+    networks:
+      - traefik-proxy
+
+networks:
+  traefik-proxy:
+    external: true
