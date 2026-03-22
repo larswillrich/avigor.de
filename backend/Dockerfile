@@ -11,6 +11,7 @@ ENV NODE_ENV=production
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./
+COPY --from=builder /app/src/db/migrations ./src/db/migrations
 EXPOSE 4000
 USER node
 CMD ["node", "dist/index.js"]
