@@ -19,15 +19,24 @@ export default function Contact() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formsubmit.co/ajax/hello@avigor.de", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || "—",
+          message: formData.message,
+          _subject: `New inquiry from ${formData.name}${formData.company ? ` (${formData.company})` : ""}`,
+          _template: "table",
+        }),
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Something went wrong.");
+        throw new Error("Something went wrong.");
       }
 
       setStatus("success");
@@ -230,7 +239,7 @@ export default function Contact() {
                   </button>
 
                   <p className="text-white/30 text-xs text-center">
-                    Your data is sent directly to us — no third-party services involved.
+                    We typically respond within 24 hours.
                   </p>
                 </form>
               )}

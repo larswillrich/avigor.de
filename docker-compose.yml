@@ -2,12 +2,6 @@ services:
   avigor-website:
     image: ghcr.io/larswillrich/avigor:latest
     restart: unless-stopped
-    environment:
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT:-587}
-      - SMTP_SECURE=${SMTP_SECURE:-false}
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASS=${SMTP_PASS}
     labels:
       - traefik.enable=true
       - traefik.http.routers.avigorwebsite.rule=Host(`avigor.de`) || Host(`www.avigor.de`)
