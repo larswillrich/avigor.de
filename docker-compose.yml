@@ -11,6 +11,58 @@ services:
     networks:
       - traefik-proxy
 
+  avigor-api:
+    image: ghcr.io/larswillrich/avigor-api:latest
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://avigor:${POSTGRES_PASSWORD}@postgres:5432/avigor
+      - JWT_SECRET=${JWT_SECRET}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_SECURE=${SMTP_SECURE:-false}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - SMTP_FROM_NAME=${SMTP_FROM_NAME:-Dr. Sven-Erik Willrich}
+      - SMTP_FROM_EMAIL=${SMTP_FROM_EMAIL:-sven@avigor.de}
+      - SMTP_REPLY_TO=${SMTP_REPLY_TO:-hello@avigor.de}
+      - PAGESPEED_API_KEY=${PAGESPEED_API_KEY:-}
+      - WARMUP_START_DATE=${WARMUP_START_DATE:-2026-04-01}
+      - BASE_URL=https://avigor.de
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - PORT=4000
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.avigorapi.rule=Host(`avigor.de`) && PathPrefix(`/api`)
+      - traefik.http.routers.avigorapi.tls=true
+      - traefik.http.routers.avigorapi.entrypoints=web,websecure
+      - traefik.http.routers.avigorapi.tls.certresolver=mytlschallenge
+      - traefik.http.services.avigorapi.loadbalancer.server.port=4000
+      - traefik.http.middlewares.api-strip.stripprefix.prefixes=/api
+      - traefik.http.routers.avigorapi.middlewares=api-strip
+    networks:
+      - traefik-proxy
+      - avigor-internal
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: avigor
+      POSTGRES_USER: avigor
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - avigor-pgdata:/var/lib/postgresql/data
+    networks:
+      - avigor-internal
+
+volumes:
+  avigor-pgdata:
+
 networks:
   traefik-proxy:
     external: true
+  avigor-internal:
+    driver: bridge
