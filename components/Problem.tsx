@@ -57,7 +57,7 @@ const painPoints = [
 
 export default function Problem() {
   return (
-    <section id="why" className="relative bg-white py-24 md:py-32">
+    <section id="why" aria-label="Why traditional consulting is broken" className="relative bg-white py-24 md:py-32">
       <div className="absolute inset-0 dot-pattern" />
       <div className="relative max-w-6xl mx-auto px-6">
         <AnimateOnScroll>

@@ -132,7 +132,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative bg-white py-24 md:py-32">
+    <section id="services" aria-label="Our consulting services" className="relative bg-white py-24 md:py-32">
       <div className="absolute inset-0 dot-pattern" />
       <div className="relative max-w-6xl mx-auto px-6">
         <AnimateOnScroll>

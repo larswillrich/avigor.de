@@ -38,7 +38,7 @@ const benefits = [
 
 export default function Pricing() {
   return (
-    <section className="relative bg-white py-24 md:py-32">
+    <section aria-label="Pricing model comparison" className="relative bg-white py-24 md:py-32">
       <div className="absolute inset-0 dot-pattern" />
       <div className="relative max-w-6xl mx-auto px-6">
         <AnimateOnScroll>

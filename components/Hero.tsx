@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section aria-label="Hero — Agentic-Driven Consulting" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background elements */}
       <div className="absolute inset-0 dot-pattern" />
       <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-indigo/5 rounded-full blur-[100px]" />

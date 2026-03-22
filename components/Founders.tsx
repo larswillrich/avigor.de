@@ -43,7 +43,7 @@ const founders = [
 
 export default function Founders() {
   return (
-    <section id="team" className="relative bg-lavender py-24 md:py-32">
+    <section id="team" aria-label="Meet the founding team" className="relative bg-lavender py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <AnimateOnScroll>
           <div className="inline-flex items-center gap-2 bg-indigo/5 rounded-full px-4 py-1.5 mb-4">

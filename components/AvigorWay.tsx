@@ -13,7 +13,7 @@ const comparisons = [
 
 export default function AvigorWay() {
   return (
-    <section className="bg-indigo-deep py-24 md:py-32 relative overflow-hidden">
+    <section aria-label="The Avigor way — agentic vs traditional" className="bg-indigo-deep py-24 md:py-32 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-lime/5 rounded-full blur-[100px]" />
