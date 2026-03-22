@@ -17,7 +17,8 @@ interface ReportData {
   investition: { label: string; count: string }[];
 }
 
-function BarChart({ data, color = "indigo" }: { data: { label: string; count: string }[]; color?: string }) {
+function BarChart({ data, color = "indigo" }: { data?: { label: string; count: string }[]; color?: string }) {
+  if (!data || data.length === 0) return <p className="text-slate-light text-sm">Keine Daten vorhanden.</p>;
   const max = Math.max(...data.map((d) => parseInt(d.count)));
   return (
     <div className="space-y-3">
@@ -46,7 +47,12 @@ export default function ReportPage() {
   useEffect(() => {
     fetch(`${API_URL}/report`)
       .then((r) => r.json())
-      .then(setData)
+      .then((d) => {
+        // Only set data if it has the expected array fields
+        if (d && d.branche_distribution && Array.isArray(d.branche_distribution)) {
+          setData(d);
+        }
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
